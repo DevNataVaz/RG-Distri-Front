@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG Distribuidora</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="logo.png" alt="Depósito de Bebidas Ronaldo" class="store-logo">
+            <div class="store-info">
+                <h1>RG Distribuidora</h1>
+                <p>Os melhores preços em bebidas</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="tab-bar">
+        <button onclick="showCart()">🛒 Carrinho</button>
+        <!-- <button onclick="showInfo()">ℹ️ Informações</button> -->
+    </nav>
+
+    <section class="categories">
+        <button class="category-btn" onclick="filterCategory('cervejas')">Cervejas</button>
+        <button class="category-btn" onclick="filterCategory('destilados')">Destilados</button>
+        <button class="category-btn" onclick="filterCategory('refrigerantes')">Refrigerantes</button>
+    </section>
+
+    <main id="menu">
+        <!-- Produtos serão adicionados aqui via JavaScript -->
+    </main>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <h2>Seu Carrinho</h2>
+            <ul id="cart-items"></ul>
+            <div class="cart-footer">
+                <input type="text" id="customer-name" placeholder="Seu Nome">
+                <input type="text" id="customer-contact" placeholder="Seu WhatsApp">
+                <input type="text" id="customer-address" placeholder="Endereço">
+                <button onclick="sendOrder()">Finalizar Pedido</button>
+            </div>
+            <button onclick="closeCart()">Fechar</button>
+        </div>
+    </div>
+</body>
+</html>
