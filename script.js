@@ -81,7 +81,7 @@ function sendOrder() {
 
   let order = cart.map(item => `${item.name} - R$ ${item.price.toFixed(2)}`).join("\n");
   let message = `Pedido de ${name}\n${order}\nContato: ${contact}\nEndereço: ${address}\nTotal: R$ ${cart.reduce((sum, item) => sum + item.price, 0).toFixed(2)}`;
-  let whatsappUrl = `https://api.whatsapp.com/send?phone=SEU_NUMERO&text=${encodeURIComponent(message)}`;
+  let whatsappUrl = `https://api.whatsapp.com/send?phone=+5561992602617&text=${encodeURIComponent(message)}`;
 
   window.location.href = whatsappUrl;
 }
