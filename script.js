@@ -1,10 +1,10 @@
 const products = [
-  { id: 1, name: "Cerveja Heineken", category: "cervejas", price: 10, image: "heineken.jpg" },
-  { id: 2, name: "Cerveja Heineken", category: "cervejas", price: 10, image: "heineken.jpg" },
-  { id: 3, name: "Cerveja Heineken", category: "cervejas", price: 10, image: "heineken.jpg" },
-  { id: 4, name: "Cerveja Heineken", category: "cervejas", price: 10, image: "heineken.jpg" },
-  { id: 5, name: "Vodka Absolut", category: "destilados", price: 50, image: "absolut.jpg" },
-  { id: 6, name: "Coca-Cola 2L", category: "refrigerantes", price: 8, image: "coca.jpg" }
+  { id: 1, name: "Cerveja Heineken", category: "cervejas", price: 10, image: "assets/heineken.webp" },
+  { id: 2, name: "Cerveja Heineken", category: "cervejas", price: 10, image: "assets/heineken.webp" },
+  { id: 3, name: "Cigarro Malboro", category: "cigarros", price: 22.90, image: "assets/cigarro.jpg" },
+  { id: 4, name: "Pod Ignite", category: "pods", price: 99, image: "assets/pods.webp" },
+  { id: 5, name: "Vodka Absolut", category: "destilados", price: 50, image: "assets/absolut.jpg" },
+  { id: 6, name: "Coca-Cola 2L", category: "refrigerantes", price: 8, image: "assets/coca.webp" }
 ];
 
 const cart = [];

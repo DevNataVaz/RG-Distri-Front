@@ -1,12 +1,18 @@
-body {
-  font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+* {
+  font-family: "Nunito", sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   text-align: center;
 }
 
 header {
-  background: #d32f2f;
+  background-image: url("./assets/background-header.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
   padding: 20px;
 }
@@ -48,8 +54,10 @@ header {
 }
 
 .category-btn {
-  background: #ff9800;
+  background: #e2a345;
   border: none;
+  
+  border-radius: 15px;
   padding: 10px 15px;
   margin: 5px;
   cursor: pointer;
@@ -98,22 +106,42 @@ button.add-to-cart {
 
 .modal-content {
   background: white;
-  margin: 10% auto;
-  padding: 20px;
+  margin: 15% auto;
+  padding: 50px;
   width: 300px;
   text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px #585757;
+}
+
+.modal-content span {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 40px;
+  left: 40px;
+  
+}
+
+.modal-content h2 {
+  padding-bottom: 30px;
+
 }
 
 .cart-footer input {
   width: 100%;
-  margin: 5px 0;
-  padding: 8px;
+  margin: 8px 0;
+  padding: 10px 40px;
+  border-radius: 10px;
+  
 }
 
 .cart-footer button {
-  background: #d32f2f;
+  background: #e2a345;
   color: white;
   border: none;
   padding: 10px;
+  margin-top: 10px;
   cursor: pointer;
+  border-radius: 5px;
 }
