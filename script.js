@@ -18,7 +18,7 @@ function loadMenu() {
       item.innerHTML = `
           <img src="${product.image}" alt="${product.name}">
           <h3>${product.name}</h3>
-          <p>R$ ${product.price},00</p>
+          <p>R$ ${product.price.toFixed(2)}</p>
           <button class="add-to-cart" onclick="addToCart(${product.id})">+</button>
       `;
       menu.appendChild(item);
@@ -35,7 +35,7 @@ function filterCategory(category) {
       item.innerHTML = `
           <img src="${product.image}" alt="${product.name}">
           <h3>${product.name}</h3>
-          <p>R$ ${product.price},00</p>
+          <p>R$ ${product.price.toFixed(2)}</p>
           <button class="add-to-cart" onclick="addToCart(${product.id})">+</button>
       `;
       menu.appendChild(item);
@@ -46,6 +46,7 @@ function addToCart(id) {
   const product = products.find(p => p.id === id);
   cart.push(product);
   alert(`${product.name} adicionado ao carrinho!`);
+  updateCartTotal();
 }
 
 function showCart() {
@@ -53,9 +54,14 @@ function showCart() {
   cartItems.innerHTML = "";
   cart.forEach(item => {
       const li = document.createElement("li");
-      li.textContent = `${item.name} - R$ ${item.price},00`;
+      li.classList.add("cart-item");
+      li.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <span>${item.name} - R$ ${item.price.toFixed(2)}</span>
+      `;
       cartItems.appendChild(li);
   });
+  updateCartTotal();
   document.getElementById("cart-modal").style.display = "block";
 }
 
@@ -63,13 +69,18 @@ function closeCart() {
   document.getElementById("cart-modal").style.display = "none";
 }
 
+function updateCartTotal() {
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  document.getElementById("cart-total").textContent = `Total: R$ ${total.toFixed(2)}`;
+}
+
 function sendOrder() {
   const name = document.getElementById("customer-name").value;
   const contact = document.getElementById("customer-contact").value;
   const address = document.getElementById("customer-address").value;
 
-  let order = cart.map(item => `${item.name} - R$ ${item.price},00`).join("\n");
-  let message = `Pedido de ${name}\n${order}\nContato: ${contact}\nEndereço: ${address}`;
+  let order = cart.map(item => `${item.name} - R$ ${item.price.toFixed(2)}`).join("\n");
+  let message = `Pedido de ${name}\n${order}\nContato: ${contact}\nEndereço: ${address}\nTotal: R$ ${cart.reduce((sum, item) => sum + item.price, 0).toFixed(2)}`;
   let whatsappUrl = `https://api.whatsapp.com/send?phone=SEU_NUMERO&text=${encodeURIComponent(message)}`;
 
   window.location.href = whatsappUrl;
