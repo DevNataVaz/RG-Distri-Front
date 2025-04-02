@@ -2,7 +2,7 @@ const products = [
   { id: 1, name: "Cerveja Heineken", category: "cervejas", price: 10, image: "assets/heineken.webp" },
   { id: 2, name: "Cerveja Heineken", category: "cervejas", price: 10, image: "assets/heineken.webp" },
   { id: 3, name: "Cigarro Malboro", category: "cigarros", price: 22.90, image: "assets/cigarro.jpg" },
-  { id: 4, name: "Pod Ignite", category: "pods", price: 99, image: "assets/pods.webp" },
+  { id: 4, name: "Pod Ignite", category: "pods", price: 125.90, image: "assets/pods.webp" },
   { id: 5, name: "Vodka Absolut", category: "destilados", price: 50, image: "assets/absolut.jpg" },
   { id: 6, name: "Coca-Cola 2L", category: "refrigerantes", price: 8, image: "assets/coca.webp" }
 ];
@@ -42,12 +42,36 @@ function filterCategory(category) {
   });
 }
 
+
+
 function addToCart(id) {
   const product = products.find(p => p.id === id);
   cart.push(product);
-  alert(`${product.name} adicionado ao carrinho!`);
+
+  const toastContainer = document.getElementById("toast-container");
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = `${product.name} adicionado ao carrinho!`;
+
+  toastContainer.appendChild(toast);
+
+  setTimeout(() => {
+      toast.remove();
+  }, 3000);
+
   updateCartTotal();
 }
+
+function removeFromCart(id) {
+  const index = cart.findIndex(p => p.id === id);
+  if (index !== -1) {
+      cart.splice(index, 1);
+  }
+  showCart();
+  updateCartTotal();
+}
+
+
 
 function showCart() {
   const cartItems = document.getElementById("cart-items");
@@ -56,6 +80,7 @@ function showCart() {
       const li = document.createElement("li");
       li.classList.add("cart-item");
       li.innerHTML = `
+          <button class="button-cart" onclick="removeFromCart(${item.id})"><img class="img-trash" src="./assets/trash.svg" /></button>
           <img src="${item.image}" alt="${item.name}">
           <span>${item.name} - R$ ${item.price.toFixed(2)}</span>
       `;

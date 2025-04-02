@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RG Distribuidora</title>
+    <link rel="icon" href="./assets/logo.png" />
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script defer src="script.js"></script>
 </head>
+
 <body>
     <header>
         <div class="header-content">
@@ -23,7 +29,7 @@
         <button onclick="showCart()">🛒 Carrinho</button>
         <!-- <button onclick="showInfo()">ℹ️ Informações</button> -->
     </nav>
-
+    <div id="toast-container"></div>
     <section class="categories">
         <button class="category-btn" onclick="filterCategory('cervejas')">Cervejas</button>
         <button class="category-btn" onclick="filterCategory('destilados')">Destilados</button>
@@ -37,10 +43,11 @@
     </main>
 
     <div id="cart-modal" class="modal">
-        
+
         <div class="modal-content">
             <span class="material-symbols-outlined" onclick="closeCart()">close</span>
             <h2>Carrinho</h2>
+            <img>
             <ul id="cart-items"></ul>
             <p id="cart-total">Total: R$ 0,00</p>
             <div class="cart-footer">
@@ -49,8 +56,9 @@
                 <input type="text" id="customer-address" placeholder="Endereço">
                 <button onclick="sendOrder()">Finalizar Pedido</button>
             </div>
-            
+
         </div>
     </div>
 </body>
+
 </html>
